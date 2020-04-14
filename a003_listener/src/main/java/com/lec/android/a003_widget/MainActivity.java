@@ -13,10 +13,18 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-
+    // 멤버변수
     TextView tvResult;
     EditText et;
 
+    // 방법5 : 액티비티가 implement
+    // 지금 메인 액티비티 작업중.  메인에다가 View.OnClickListener implements
+    @Override
+    public void onClick(View v) { // 메인에서 Alt + Insert 누르고 메소드 추가한 것임
+        Log.d("myapp", "clear 버튼이 클릭되엇습니다");
+        tvResult.setText("Clear 버튼이 클릭되었습니다");
+        et.setText("");
+    }
 
     // onCreate()
     // 액티비티(화면 객체)가 생성될 떄 호출되는 메소드
@@ -38,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 방법2 : 익명클래스 사용
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // 클릭되었을 때 호출되는 메소드  (콜백 메소드) : 우린 여기만 작성하면 된다. (클릭도었을떄에만 수행하라)
+            public void onClick(View v) { // 클릭되었을 때 호출되는 메소드  (콜백 메소드) : 우린 여기만 작성하면 된다. (클릭되었을떄에만 수행하라)
                 Log.d("myapp", "버튼2 가 클릭 되었습니다");
                 tvResult.setText("버튼2가 클릭됨");
                 tvResult.setBackgroundColor(Color.YELLOW);
@@ -65,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d("myapp", "버튼3 가 클릭되었슈");
             tvResult.setText("버튼3 클릭됨");
             ll.setBackgroundColor(Color.rgb(164, 198, 57));
-
         });
 
 
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 6개의 버튼에 대해서 각각 setOnClick 하는것보다 하나만 만들어놓고 쓰자
 
-        class MyListener implements View.OnClickListener{
+        class MyListener implements View.OnClickListener{ // inner class
 
             String name; // 매개변수 받아줌
             public MyListener(String name){this.name=name;}
@@ -99,10 +106,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 et.setText(et.getText().append(name));  // 기존의 텍스트에 name 을 추가함. 버튼 누를때 마다 그 버튼의 name 을 추가할 것 임.
 
                 // 이와 같은 클릭 리스너 메소드를 만들고 이를 장착할 것임.
+
             }
         } // end class
 
-        // 동일한 동작을 하는 버튼 메소드는 하나의 클래스로 정의한다음에 쓰는 것이  낫지.
+        // 동일한 동작을 하는 버튼 메소드는 하나의 클래스로 정의한 다음에 쓰는 것이 낫지.
         btnA.setOnClickListener(new MyListener("안녕1"));
         btnB.setOnClickListener(new MyListener("안녕2"));
         btnC.setOnClickListener(new MyListener("안녕3"));
@@ -143,33 +151,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-
-
-
     } // onCreate()
-
 
 
 
     // 방법1 : 레이아웃 xml  의 onXXX 속성으로 지정
     public void changeText(View v){
-        // 대문자 V로 시작하는거 : 알트 엔터 :  exception 이나import 해주는 단축키
-        // Log,d(tag, message)
+        // 대문자 V로 시작하는거 : Alt + Enter :  exception 이나import 해주는 단축키
+        // Log.d(tag, message)
         // Log 창의 Debug 메세지로 출력
         Log.d("myapp", "버튼 1이 클릭되었습니다");
         tvResult.setText("버튼1 이 클릭 되었습니다");
+    } // end changeText()
 
-    }
-
-
-    // 방법5 : 액티비티가 implement
-    // 지금 메인 액티비티 작업중.  메인에다가 View.OnClickListener
-
-    @Override
-    public void onClick(View v) { // 메인에서 알트 인서트 누르고 메소드 추가한 것임
-        Log.d("myapp", "clear 버튼이 클릭되엇습니다");
-        tvResult.setText("Clear 버튼이 클릭되었습니다");
-        et.setText("");
-
-    }
-}
+}  // main class()

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 if(hasFocus){
                     ((EditText)v).setBackgroundColor(Color.YELLOW);
                 } else{
-                    // 투명생 ( 포커스 이동했을때 원위치로 만들기)
+                    // 투명색 ( 포커스 이동했을때 원위치로 만들기)
                     ((EditText)v).setBackgroundColor(Color.parseColor("#00000000")); // 포커스 이동하면 색을 완전히 잃음
                 }
             }

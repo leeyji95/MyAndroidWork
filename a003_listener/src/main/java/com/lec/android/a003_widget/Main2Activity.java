@@ -9,7 +9,7 @@ public class Main2Activity extends AppCompatActivity {
     // 과제: 계산기 앱 만들기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+            super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
     }
 }

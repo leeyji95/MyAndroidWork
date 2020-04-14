@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="188dp" />
+        app:layout_constraintGuide_end="187dp" />
 
     <Button
         android:id="@+id/button7"
