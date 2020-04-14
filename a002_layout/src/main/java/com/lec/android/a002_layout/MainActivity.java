@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
        int ss = 100;
        String tt = "호호홓호호호호호호호호 점심시간 많이 먹을거야";
-
-
+        char ch = 'a';
+        char ch1 = 'a';
     }
 
 }
