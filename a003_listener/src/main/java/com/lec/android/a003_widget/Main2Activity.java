@@ -115,13 +115,13 @@ public class Main2Activity extends AppCompatActivity {
                     break;
                 case(R.id.btn_result):
                     if(operator == DIVISION){
-                        edit.setText("" + (Long.parseLong(num) / Long.parseLong(edit.getText().toString())));
+                        edit.setText(String.format("%f", Double.parseDouble(num) / Double.parseDouble(edit.getText().toString())));
                     } else if(operator == MULTIPLE) {
-                        edit.setText("" + (Long.parseLong(num) * Long.parseLong(edit.getText().toString())));
+                        edit.setText(Integer.toString(Integer.parseInt(num) * Integer.parseInt(edit.getText().toString())));
                     } else if(operator == PLUS){
-                        edit.setText("" + (Long.parseLong(num) + Long.parseLong(edit.getText().toString())));
+                        edit.setText(Integer.toString(Integer.parseInt(num) + Integer.parseInt(edit.getText().toString())));
                     } else if(operator == SUB){
-                        edit.setText("" + (Long.parseLong(num) - Long.parseLong(edit.getText().toString())));
+                        edit.setText(Integer.toString(Integer.parseInt(num) - Integer.parseInt(edit.getText().toString())));
                     }
                     edit.getText();  // EditText 에 결과값 넣어줌. ->  연속 연산 가능
                     break;
