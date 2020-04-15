@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDCFCD"
     android:orientation="vertical"
-    tools:context=".Main2Activity" >
+    tools:context=".Main2Activity">
 
     <TextView
         android:id="@+id/calculator"
@@ -20,176 +21,193 @@
         android:layout_height="102dp"
         android:ems="10"
         android:gravity="right"
-        android:inputType="textPersonName" />
+        android:textSize="20dp"
+        android:inputType="number" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TableRow
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#9EABF3"
+                android:onClick="onClick"
                 android:text="7"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#ECD799"
+                android:onClick="onClick"
                 android:text="8"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#E6B3EF"
+                android:onClick="onClick"
                 android:text="9"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_division"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#A4CD74"
+                android:onClick="onClick"
                 android:text="÷"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </TableRow>
 
         <TableRow
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#95E6F1"
+                android:onClick="onClick"
                 android:text="4"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#9EABF3"
+                android:onClick="onClick"
                 android:text="5"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#EFA09A"
+                android:onClick="onClick"
                 android:text="6"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_multi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#A783E8"
+                android:onClick="onClick"
                 android:text="×"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </TableRow>
 
         <TableRow
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#F3F696"
+                android:onClick="onClick"
                 android:text="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#E6A9F1"
+                android:onClick="onClick"
                 android:text="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#E6D297"
+                android:onClick="onClick"
                 android:text="3"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_sub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#DFA694"
+                android:onClick="onClick"
                 android:text="-"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </TableRow>
 
         <TableRow
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_Clear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#EC9D97"
+                android:onClick="onClick"
                 android:text="C"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#BEE491"
+                android:onClick="onClick"
                 android:text="0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_result"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#F49595"
+                android:onClick="onClick"
                 android:text="="
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <Button
-                android:onClick="onClick"
                 android:id="@+id/btn_plus"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#A2D8F1"
+                android:onClick="onClick"
                 android:text="+"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </TableRow>
