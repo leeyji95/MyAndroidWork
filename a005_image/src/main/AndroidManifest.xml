@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lec.android.a004_widget">
+    package="com.lec.android.a005_image">
+    <!-- 권한 명시 . -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -19,7 +24,7 @@
         <activity android:name=".Main3Activity">
 
         </activity>
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".Main2Activity"></activity>
         <activity android:name=".MainActivity" />
     </application>
 

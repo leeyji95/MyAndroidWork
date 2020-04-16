@@ -43,7 +43,19 @@ public class Main2Activity extends AppCompatActivity {
                 }
             }
         });
-    }
+
+
+        class Operator implements View.OnClickListener{
+
+            String oper1 = op1.getText().toString();
+            String oper2 = op2.getText().toString();
+
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        }
 
 
 
@@ -52,5 +64,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
+
+    } // end onCreate()
 
 }
