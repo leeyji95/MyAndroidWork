@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity_Drawable_Bitmap extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

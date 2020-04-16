@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Main4Activity">
+    tools:context=".Main4Activity_radioButton">
 
     <TextView
         android:id="@+id/tvTitle"

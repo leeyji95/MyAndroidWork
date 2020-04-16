@@ -9,7 +9,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity_Spinner extends AppCompatActivity {
 
     TextView tvResult;
     Spinner spinner1;

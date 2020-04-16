@@ -28,7 +28,7 @@ import java.net.URL;
 
 
 
-public class Main4Activity extends AppCompatActivity {
+public class Main4Activity_Thread extends AppCompatActivity {
 
     // 이미지 URl, 반드시 https:// 이어야 한다.
     String imgUrl = "https://developer.android.com/studio/images/studio-icon-stable.png";

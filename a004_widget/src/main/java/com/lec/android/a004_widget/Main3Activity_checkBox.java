@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.zip.CheckedInputStream;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity_checkBox extends AppCompatActivity {
 
     CheckBox cb1, cb2, cb3, cb4;
     TextView tvResult;

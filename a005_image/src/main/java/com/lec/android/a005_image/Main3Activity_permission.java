@@ -44,7 +44,7 @@ import java.util.Arrays;
  */
 
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity_permission extends AppCompatActivity {
 
     ImageView ivPhoto;
     TextView tvPath;
@@ -54,7 +54,7 @@ public class Main3Activity extends AppCompatActivity {
     // 이미지 경로 알아내기 (제조사, 모델 마다 다를 수 있다)
     // 픽셀폰 : 갤러리 이미지보기 -> 하단의 i 버튼
     // 삼성폰 : 갤러리 이미지 롱클릭 후 상세정보...
-    private String imgPath = "/sdcard/0/DCIM/Camera/france.png";
+    private String imgPath = "/storage/emulated/0/DCIM/Camera";
     private final int PERMISSION_REQUEST_CODE = 101; // 권한 요청 코드값 (int) 상수로 박아두기//
     private final String[] PERMISSIONS = { // 요청할 권한들을 String[] 로 준비
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -136,7 +136,6 @@ public class Main3Activity extends AppCompatActivity {
                     Log.d("myapp", "권한획득결과\n\t" + Arrays.toString(permissions) + " : " + Arrays.toString(grantResults));
                 } else {
                     // 사용자가 권한 승인 안함!(안하면)
-
                 }
                 break;
         } // end switch

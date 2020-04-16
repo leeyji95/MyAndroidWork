@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import javax.net.ssl.HandshakeCompletedEvent;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity_Tracking extends AppCompatActivity {
 
     TextView tvResult;
     SeekBar seekBar;
@@ -19,6 +19,8 @@ public class Main3Activity extends AppCompatActivity {
     int add = 2;
 
     Handler handler = new Handler();
+
+    boolean isTracking = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,14 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 Toast.makeText(getApplicationContext(), "트래킹 시작", Toast.LENGTH_SHORT).show(); // 토스트 띄운다 표현
+                isTracking = true;
             }
 
             // tracking 끝날 때 콜백( 손을 뗄 때)
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Toast.makeText(getApplicationContext(), "트래킹 종료", Toast.LENGTH_SHORT).show(); // 토스트 띄운다 표현
+                isTracking = false;
             }
         });
 
@@ -55,30 +59,32 @@ public class Main3Activity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 int max = seekBar.getMax();
 
                 while(true){
-                    value = seekBar.getProgress() + add;
 
-                    if(value > max || value < 0){
-                        add = -add;
-                    }
+                    if(!isTracking) {
+                        value = seekBar.getProgress() + add;
 
-
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            seekBar.setProgress(value); // 현재값 의미
+                        if (value > max || value < 0) {
+                            add = -add;
                         }
-                    });
 
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                seekBar.setProgress(value); // 현재값 의미
+                            }
+                        });
 
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    } // end if
 
                 } // end while
 

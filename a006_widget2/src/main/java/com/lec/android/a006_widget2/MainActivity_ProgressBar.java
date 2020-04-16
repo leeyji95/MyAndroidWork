@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_ProgressBar extends AppCompatActivity {
 
     ProgressBar pB1, pB2, pB3;
 

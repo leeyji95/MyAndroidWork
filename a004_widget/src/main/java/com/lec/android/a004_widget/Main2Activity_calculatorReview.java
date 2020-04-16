@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity_calculatorReview extends AppCompatActivity {
 
     TextView tvResult;
     EditText op1, op2;
