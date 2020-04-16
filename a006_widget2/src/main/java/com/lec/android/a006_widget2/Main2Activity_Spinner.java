@@ -23,7 +23,7 @@ public class Main2Activity_Spinner extends AppCompatActivity {
         spinner1 = findViewById(R.id.spinner1);
 
         // 어떤 아이템 선택했을 떄 동작하는 리스너 장착
-        // 아이템을 선택했을 때 호출되는 콜백
+        // 아이템을 선택했을 때 호출되는 콜백00000
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             // 아이템을 선택했을 때
