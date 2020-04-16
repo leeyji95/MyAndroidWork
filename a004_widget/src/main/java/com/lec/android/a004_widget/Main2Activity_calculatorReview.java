@@ -37,7 +37,7 @@ public class Main2Activity_calculatorReview extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 // hasFocus: true 포커스 받은 경우  false: 포커스 잃은 경우
                 if (hasFocus) {
-                    ((EditText) v).setBackgroundColor(Color.YELLOW);
+                    ((EditText) v).setBackgroundColor(Color.CYAN);
                 } else {
                     ((EditText) v).setBackgroundColor(Color.parseColor("#00000000")); // 포커스 이동하면 색을 완전히 잃음
                 }
@@ -45,22 +45,44 @@ public class Main2Activity_calculatorReview extends AppCompatActivity {
         });
 
 
-        class Operator implements View.OnClickListener{
 
-            String oper1 = op1.getText().toString();
-            String oper2 = op2.getText().toString();
-
+        Button.OnClickListener myListener = new Button.OnClickListener(){
 
             @Override
             public void onClick(View v) {
+                String oper1 = op1.getText().toString();
+                String oper2 = op2.getText().toString();
 
+                int a, b;
+
+                if(oper1 != null && !oper1.trim().equals("")){
+                    a = Integer.parseInt(oper1);
+                } else {
+                    a = 0;
+                }
+
+                if(oper2 != null && !oper2.trim().equals("")){
+                    b = Integer.parseInt(oper2);
+                } else {
+                    b = 0;
+                }
+
+                switch (v.getId()){
+                    case R.id.btnPlus:
+                        tvResult.setText((a + b) + ""); // a + b
+                        break;
+                    case R.id.btnMinus:
+                        tvResult.setText((a - b) + ""); // a - b
+                        break;
+                    case R.id.btnDiv:
+                        tvResult.setText((a / b) + ""); // a / b
+                        break;
+                    case R.id.btnMul:
+                        tvResult.setText((a * b) + ""); // a * b
+                        break;
+                } // end switch
             }
-        }
-
-
-
-
-
+        };
 
 
 

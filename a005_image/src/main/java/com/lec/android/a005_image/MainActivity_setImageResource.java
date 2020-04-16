@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 // 안드로이드의 모~든 리소스(Resource) 로 사용하는 파일 들은
 // 파일명 규칙
 // - 대문자 불가!
@@ -26,8 +28,10 @@ public class MainActivity_setImageResource extends AppCompatActivity {
 
         iv = findViewById(R.id.iv1); // 객체 생성
 
-        // res/drawble 폴더에 있는 이미지로 세팅하기
-        iv.setImageResource(R.drawable.a1); // 이미지 뷰에 setImage리소스 장착해서 화면에 보여주기. 레이아웃에 해도 되고 여기 onCreate() 에다가 이렇게 해도 되고.
+        // 이미지 뷰에 setImage리소스 장착해서 화면에 보여주기.
+        // 레이아웃에 해도 되고 여기 onCreate() 에다가 이렇게 해도 되고.
+        // res/drawble 폴더에 있는 이미지로  화면 창 띄우기
+        iv.setImageResource(R.drawable.a1);
 
         // 이미지뷰 객체에 리스너 장착
         iv.setOnClickListener(new MyListener());
@@ -49,7 +53,4 @@ public class MainActivity_setImageResource extends AppCompatActivity {
             tvResult.setText("이미지뷰: " + i);
         } // onClick()
     } // end MyListener
-
-
-
 } // end Activity
