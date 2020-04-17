@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // 방법4 : implemnet 한 클래스 사용
-        // TODO
+
         Button btnA = findViewById(R.id.btnA);
         Button btnB = findViewById(R.id.btnB);
         Button btnC = findViewById(R.id.btnC);
