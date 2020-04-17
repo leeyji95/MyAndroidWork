@@ -1,5 +1,6 @@
 package com.lec.android.a008_practice;
 
+import android.os.ParcelFormatException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,63 +45,57 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-
         TextView tvName, tvAddress, tvAge;
         ImageButton btnDelItem;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tvName = itemView.findViewById(R.id.tvName);
             tvAddress = itemView.findViewById(R.id.tvAdress);
             tvAge = itemView.findViewById(R.id.tvAge);
 
             btnDelItem = itemView.findViewById(R.id.btnDelItem);
-
-
-
-
+            btnDelItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    adapter.removeItem(getAdapterPosition()); // 데이터 삭제
+                    adapter.notifyDataSetChanged(); // 시각적으로 사라지기
+                }
+            });
 
         } // end 생성자
-
 
 
         public void setProfile(Profile pf){
             tvName.setText(pf.getName());
             tvAddress.setText(pf.getAddress());
-            tvAge.setText(pf.getAge());
+            tvAge.setText("" + pf.getAge());
         } // end setItem()
-
-
-
     } // end ViewHolder
 
 
  // 리스트에 데이터 추가 수정 저장
-    public void addItem(Profile pf) {
+    public void addItem(Profile pf){
         itemList.add(pf);
     }
 
-    public void addItem(int position, Profile pf) {
+    public void addItem(int position, Profile pf){
         itemList.add(position, pf);
     }
-
-    public void setItems(ArrayList<Profile> pfs) {
-        this.itemList = itemList;
+    public void setItem (ArrayList<Profile> pfList){
+        this.itemList = pfList;
     }
 
-    public Profile getItem(int position) {
+    public Profile getItem(int position){
         return itemList.get(position);
     }
 
-    public void setItem(int position, Profile pf) {
+    public void setItem(int position, Profile pf){
         itemList.set(position, pf);
     }
-
     public void removeItem(int position){
         itemList.remove(position);
     }
-
 
 
 } // end ProfileAdapter

@@ -27,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
         //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
 
         rv.setLayoutManager(layoutManager);
+
         // Adpter 객체 생성
         adapter = new PhonebookAdapter(); // 어댑터 만들고
-
         initAdapter(adapter);
-
         rv.setAdapter(adapter); // RecylcerView 에 Adapter 장착!
 
         Button btnInsert = findViewById(R.id.btnInsert);

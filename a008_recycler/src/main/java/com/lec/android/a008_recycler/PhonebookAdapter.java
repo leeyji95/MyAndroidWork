@@ -1,7 +1,6 @@
 package com.lec.android.a008_recycler;
 
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +25,7 @@ public class PhonebookAdapter extends RecyclerView.Adapter<PhonebookAdapter.View
     // Adapter가 데이터에 연결되어야 하는 것은 사실이나, 데이터를 Adapter를 직접 다룰지
     // 아니면 별도의 데이터 관리는 따로 하는 구조로 만들지는 선택의 몫
     // 본 예제에서는 Adapter 안에 직접 데이터를 다루어보겠습니다
-    List<Phonebook> items = new ArrayList<Phonebook>();
+    List<Phonebook> itemsList = new ArrayList<Phonebook>();
 
     static PhonebookAdapter adapter;
     // Adapter 생성자
@@ -67,8 +65,8 @@ public class PhonebookAdapter extends RecyclerView.Adapter<PhonebookAdapter.View
     // -> 새로이 데이터를 실어야 하는 그 시점에서 호출된다.      방뺸 뷰홀더 값이 넘어오고, 목록의 포지션값이 넘어와서 몇번째 데이터인지 알 수 있다. 몇번째 데이터를 꺼내서 뷰홀더 객체에 싹 넣어주는 역할이 온 바인드()
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Phonebook item = items.get(position); // List<> 의 get()
-        holder.setItem(item); // 뷰홀더 객체로 Item 을 띄운다(꺼낸다)
+        Phonebook item = itemsList.get(position); // List<> 의 get()
+        holder.setItem(item); // 뷰홀더 클래스에 있는 setItem 메소드 이용해서 view객체로 phonebook 데이터 화면에 띄운다.
     }
 
      // getItemCount() : 어댑터에서 다루는 현시점 아이템(데이터)의 개수
@@ -76,7 +74,7 @@ public class PhonebookAdapter extends RecyclerView.Adapter<PhonebookAdapter.View
     // 항상 지금 다루고 있는 데이터가 몇개인지 , 즉 현재 데이터가 몇 개 인지 알아야 한다.
     @Override
     public int getItemCount() {
-        return items.size(); // List<> 의 size()
+        return itemsList.size(); // List<> 의 size()
     }
 
     // 각각의 보여지는 뷰들을 담는 뷰홀더 필요
@@ -130,7 +128,7 @@ public class PhonebookAdapter extends RecyclerView.Adapter<PhonebookAdapter.View
             });
 
 
-            // --- 클릭 리스너 장착 ---              ==> 클릭하면 다음 상세페이지로 넘어가도록 하는 동작  작성해보자.   무엇을 넘길 건지 ... intent 날려보자..!
+            // --- 사각형 클릭 리스너 장착 ---              ==> 사각형 클릭하면 다음 상세페이지로 넘어가도록 하는 동작  작성해보자.   무엇을 넘길 건지 ... intent 날려보자..!
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -139,35 +137,51 @@ public class PhonebookAdapter extends RecyclerView.Adapter<PhonebookAdapter.View
 
                     // 아이템을 클릭하면 해당 세부 정보 액티비티로 넘겨주기
                     Intent intent = new Intent(v.getContext(), PhoneebookDetail.class);  //Phonebook 시리얼라이저블 하고 오기
-
                     intent.putExtra("pb", adapter.getItem(position));
 
-                    v.getContext().startActivity(intent); // 여기는 Activity 가 아니므로 -> 뷰 객체를 통해 getContext() 로 접근.
+                    v.getContext().startActivity(intent); // 여기는 Activity 가 아니므로 -> 뷰 객체를 통해 getContext()_ 현재 실행되고 있는 액티비티 로 접근.
 
                 }
             });
 
         } // end 생성자
 
-
-        // Phonebook 데이터를 받아서 View 멤버변수에 세팅(장착)
-        public void setItem(Phonebook item){
-            ivPhoto.setImageResource(item.getPhoto());
-            tvName.setText(item.getName());
-            tvPhone.setText(item.getPhone());
-            tvEmail.setText(item.getEmail());
+        // ViewHolder 클래스에 정의한 메소드 -> 뷰홀더 객체로 얼마든지 다른 곳에서 호출가능(public)
+        // Phonebook 타입으로 받아서  뷰객체들로  화면에 띄우기
+        public void setItem(Phonebook pb){
+            ivPhoto.setImageResource(pb.getPhoto());
+            tvName.setText(pb.getName());
+            tvPhone.setText(pb.getPhone());
+            tvEmail.setText(pb.getEmail());
         } // end setItem()
 
     } // end ViewHolder
 
     // 데이터를 다루기 위한 메소드들
     // ArrayList 의 메소드들 사용
-    public void addItem(Phonebook item) { items.add(item); }
-    public void addItem(int position, Phonebook item) { items.add(position, item);}
-    public void setItems(ArrayList<Phonebook> items) { this.items = items;}
-    public Phonebook getItem(int position) { return items.get(position);}
-    public void setItem(int position, Phonebook item) { items.set(position, item); }
-    public void removeItem(int position){ items.remove(position); }
+    public void addItem(Phonebook item) {   // 리스트에 폰북 데이터 추가
+        itemsList.add(item);
+    }
+
+    public void addItem(int position, Phonebook item) { // 리스트에 position 값이랑 폰북 데이터 추가
+        itemsList.add(position, item);
+    }
+
+    public void setItems(ArrayList<Phonebook> items) { //  리스트타입 받아서 -> 자기 자신 리스트에 덮어씌우기(수정)
+        this.itemsList = items;
+    }
+
+    public Phonebook getItem(int position) { // position 값 받아서  해당 인덱스번호의 리스트 원소 리턴
+        return itemsList.get(position);
+    }
+
+    public void setItem(int position, Phonebook item) { // position 이랑 폰북 타입 받아서  수정
+        itemsList.set(position, item);
+    }
+
+    public void removeItem(int position){
+        itemsList.remove(position);    // 해당 position 번호 받아서 -> 삭제
+    }
 
 
 
