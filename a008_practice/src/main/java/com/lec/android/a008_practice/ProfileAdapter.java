@@ -67,9 +67,9 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
 
         public void setProfile(Profile pf){
-            tvName.setText(pf.getName());
-            tvAddress.setText(pf.getAddress());
-            tvAge.setText("" + pf.getAge());
+            tvName.setText("이름: " + pf.getName());
+            tvAddress.setText("주소: " + pf.getAddress());
+            tvAge.setText("나이: " + pf.getAge());
         } // end setItem()
     } // end ViewHolder
 

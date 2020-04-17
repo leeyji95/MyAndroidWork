@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Adapter 객체 생성
         adapter = new ProfileAdapter(); // 어댑터 만들고
-        initAdapter(adapter);
+//      initAdapter(adapter);
         recyclerView.setAdapter(adapter);
 
         Button btnAppend = findViewById(R.id.btnAppend);
@@ -52,18 +52,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     } // end onCreate()
 
 
-    protected void initAdapter(ProfileAdapter adapter){ // 처음에 한 번 생성
+    protected void initAdapter(ProfileAdapter adapter){
         adapter.addItem(new Profile(
                 etName.getText().toString(),
                 etAddress.getText().toString(),
                 Integer.parseInt(etAge.getText().toString())
-        ));
+            ));
 
-    } // end initAdapter()
+} // end initAdapter()
 
     protected void appendData(View v){
 
