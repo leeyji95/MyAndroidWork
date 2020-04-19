@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 // 화면이 없는 액티비티  ==> 걍 백지? 아무런 레이아웃 없는 화면
-public class CalcActivity extends AppCompatActivity {
+public class CalcActivity_no_LayoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

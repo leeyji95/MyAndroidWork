@@ -3,13 +3,12 @@ package com.lec.android.a007_activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.PeriodicSync;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MyTwo extends AppCompatActivity {
+public class MyTwo_intent extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +39,18 @@ public class MyTwo extends AppCompatActivity {
 
         //----------------------------- 메인에서 Person 객체 만들고, 화면전환시도(intent 날림)-> 여기서 intent 받기
         // Person 데이터 받기
-        Person p = (Person)intent.getSerializableExtra("Person"); // 메인에서 Person 객체 intent 날린 거  받음. => 시리얼라이저블 타입으로 리턴. 그걸 Person 형변환
+        Person_intent p = (Person_intent)intent.getSerializableExtra("Person"); // 메인에서 Person 객체 intent 날린 거  받음. => 시리얼라이저블 타입으로 리턴. 그걸 Person 형변환
 
         TextView tv2 = findViewById(R.id.tv2);
         tv2.setText("Person 받은 값: " + p.getName() + " : " + p.getAge());
 
 
-        // 첫번째 액티비티로 인텐트를 날리면?
+        // 첫번째 액티비티로 인텐트를 날리면?  -> MyTwo  현재 화면에서 첫번째 화면으로 전환. (이때 ! MyTwo 화면이 종료되는 것이 아니고, 첫번쨰화면이 앞에 쌓이는 구조다! )
         Button btnToMain = findViewById(R.id.btnToMain);
         btnToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Main2Activity_intent.class);
                 startActivity(intent);
             }
         });

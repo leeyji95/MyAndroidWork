@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 appendData(v);
+                etName.setText("");
+                etAddress.setText("");
+                etAge.setText("");
             }
         });
 
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 Integer.parseInt(etAge.getText().toString())
         ));
         adapter.notifyDataSetChanged();
-    }
+    } // end appendData
 
 
-}
+} // end MainActivity

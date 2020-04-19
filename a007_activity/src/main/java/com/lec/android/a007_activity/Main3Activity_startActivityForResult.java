@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity_startActivityForResult extends AppCompatActivity {
 
     EditText et1, et2;
     Button btnStart;
@@ -35,7 +35,7 @@ public class Main3Activity extends AppCompatActivity {
                 int a = Integer.parseInt(et1.getText().toString());
                 int b = Integer.parseInt(et2.getText().toString());
 
-                Intent intent = new Intent(getApplicationContext(), CalcActivity.class); // Cal~ 에 intent 날릴 것
+                Intent intent = new Intent(getApplicationContext(), CalcActivity_no_LayoutActivity.class); // Cal~ 에 intent 날릴 것
                 intent.putExtra("num1" , a);
                 intent.putExtra("num2" , b);
 

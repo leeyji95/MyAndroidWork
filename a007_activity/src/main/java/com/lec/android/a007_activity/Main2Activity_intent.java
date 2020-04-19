@@ -21,7 +21,7 @@ import android.widget.EditText;
  */
 
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity_intent extends AppCompatActivity {
 
     EditText etName;
     EditText etAge;
@@ -38,7 +38,7 @@ public class Main2Activity extends AppCompatActivity {
         btnStarTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),  MyTwo.class);
+                Intent intent = new Intent(getApplicationContext(),  MyTwo_intent.class);
                                     // 현재 화면의 제어권자(현재 액티비티) // 다음 화면의 액티비티 클래스(객체) 지정
 
                 // 데이터를 Intent 에 실어서 보내기
@@ -49,7 +49,7 @@ public class Main2Activity extends AppCompatActivity {
                 intent.putExtra("msg", "안녕하세요");
 
                 // 이름, 나이 --> Person 에 데이터 담은 뒤 Intent 에 실어 보내기
-                Person p = new Person(
+                Person_intent p = new Person_intent(
                         etName.getText().toString(),
                         Integer.parseInt(etAge.getText().toString().trim())
                 );

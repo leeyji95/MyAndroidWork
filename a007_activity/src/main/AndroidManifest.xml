@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CalcActivity"></activity>
-        <activity android:name=".Main3Activity">
+        <activity android:name=".CalcActivity_no_LayoutActivity"></activity>
+        <activity android:name=".Main3Activity_startActivityForResult">
         </activity>
-        <activity android:name=".MyTwo" />
-        <activity android:name=".Main2Activity">
+        <activity android:name=".MyTwo_intent" />
+        <activity android:name=".Main2Activity_intent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
