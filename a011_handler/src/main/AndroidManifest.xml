@@ -20,8 +20,8 @@
 
         </activity>
         <activity android:name=".Main3Activity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Main2Activity_handler" />
+        <activity android:name=".MainActivity_setDaemon" />
     </application>
 
 </manifest>

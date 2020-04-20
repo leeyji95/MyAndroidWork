@@ -47,21 +47,12 @@ public class Main5Activity extends AppCompatActivity {
 
         Log.d("myapp", "PRE !!");
         BackgroundTask backgroundTask = new BackgroundTask();
-        backgroundTask.execute(100); //  0.1초 * 10 단위로?  ..
+        backgroundTask.execute(100); //  0.1초 * 10 단위로?   --> 최대 100까지 진행할 거..
 
 
         Log.d("myapp", "POST !!"); // <-- 과연 언제 찍힐까?
 
     } // end onCreate()
-
-
-
-
-
-
-
-
-
 
     // 요즘 안드로이드에서 가장 많이 쓰이는 방법.   얘는 핸들러 없이도 메인 UI 쓸 수 있다.
     // AsyncTask<Params, Progress, Result>

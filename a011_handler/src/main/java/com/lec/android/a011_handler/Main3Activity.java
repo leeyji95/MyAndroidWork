@@ -61,7 +61,7 @@ public class Main3Activity extends AppCompatActivity {
 
     // #1 : 메인 스레드가 메인스레드 자신에게 메세지 보내기
     // sendEmptyMessageDelayed()
-    public void mOnClick1(View v){
+    public void mOnClick1(View v){   // 여기 지금 메인 스레드임.
         new AlertDialog.Builder(this)
                 .setTitle("질문1")
                 .setMessage("업로드 하시겠습니까?")

@@ -9,7 +9,7 @@ import android.widget.TextView;
 /** Thread 사용
  *   Thread 클래스(run 함수의 구현 포함)를 별도로 정의하고,
  *   Thread의 객체를 메인 Activity내에서 생성하고 Thread를 start시킴.
- *
+ *  *
  *   일반적인 자바 프로그래밍에서는 메인스레드가 종료되면, 작업스레도도 잘(?) 종료되지만
  *   안드로이드 액티비티에선 메인스레드가 종료되도 (심지어 어플이 종료되도) 작업스레드가
  *   종료되지 않는 경우가 있습니다.  그래서 setDaemon(true) 메소드를 통해
@@ -19,7 +19,7 @@ import android.widget.TextView;
  *   ★  안드로이드는 메인 스레드를 강제로 종료시킬수 없다. ★
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_setDaemon extends AppCompatActivity {
 
     int mainValue = 0;
     int backValue1 = 0;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         tvBackValue2.setText("작업스레드2 값:" + backValue2);
     }// end mOnClick
 
-
+     //xxxxxxxxxxxxxxxxxxxxxxx
     // 안드로이드에서는 메인 쓰레드 강제 종료시킬 수 없다.
     public void mOnClick2(View v){
         Thread.currentThread().stop(); // 이건 메인쓰레드 죽이는 방법.. 근데 앱 죽음. .. - java.lang.UnspportedOperationException발생.
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    // 1. Thread 를 상속받은 작업스레드
+    // 1. Thread 를 상속받은  별도의 작업 스레드
     class BackThread extends Thread{
         @Override
         public void run() {

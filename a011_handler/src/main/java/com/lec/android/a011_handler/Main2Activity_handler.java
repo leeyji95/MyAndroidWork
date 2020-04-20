@@ -25,8 +25,12 @@ import android.widget.TextView;
  *      ▫  Runnable 전송은 postXXX()
  */
 
+// 받는 쪽에 Handler 만들어서 별도의 스레드에서 받은 메시지 or Runnable 객체를  다루어야 함.
+// 주는 쪽은 메시지를 보내는 거니까 sendMessage(msg ) 메시지 객체 담아서 보냄. 이때 handler 객체 이용해서 보내야함.
 
-public class Main2Activity extends AppCompatActivity {
+
+
+public class Main2Activity_handler extends AppCompatActivity {
 
     int mainValue = 0;
     int backValue1 = 0;
@@ -69,7 +73,7 @@ public class Main2Activity extends AppCompatActivity {
 
     public void mOnClick(View v){
         mainValue++;
-        tvMainValue.setText("Mainvalue: " + mainValue);
+        tvMainValue.setText("MainValue: " + mainValue);
     }
 
 
@@ -109,20 +113,20 @@ public class Main2Activity extends AppCompatActivity {
     // 수신할수 있다.
     // 아래 생성된 Handler 객체는 handleMessage() 를 오버라이딩 하여
     // Message 를 수신합니다.
-    Handler handler1 = new Handler(){ // 여긴 메인쓰레드
+    Handler handler1= new Handler(){ // 여긴 메인쓰레드
         @Override
         public void handleMessage(@NonNull Message msg) {
             if(msg.what == 1){ // Message id 가 1이면
                 tvBackValue1.setText("BackValue1:" + backValue1); // 메인스레드의 UI변경
-
             }
         }
     };
 
-//--------------------------------------------------------------------------------------------------
+
     // 방법 2
     Handler handler2 = new Handler();  // 메인에 핸들러 생성
 
+//--------------------------------------------------------------------------------------------------
 
     // 방법 3
     Handler handler3 = new Handler(){
@@ -166,12 +170,12 @@ public class Main2Activity extends AppCompatActivity {
 class BackThread3 extends Thread{
     int backValue = 0;
     Handler handler;
-    // 핸들러를 미리 만들어 놓구, 애시당초 생성할 때 ?
+    // 핸들러를 미리 만들어 놓구,
 
     BackThread3(Handler handler) {this.handler = handler;}
 
-    // 메세지 생성하고ㅡ, 메시지 id가 아까 what 이라고 했어. 그걸 0 으로 만들고,
-    // 메시지의 정수값 arg1 에 백밸류값을 넣는다.
+    // 메세지 생성하고ㅡ,
+
     // 핸들러에 sendMessage 에서 메시지 보내준다. 어디에?> 메인스레드에.
    //  이 핸들러는 생성할때 받은거
 
@@ -180,13 +184,13 @@ class BackThread3 extends Thread{
     @Override
     public void run() {
         while(true){
-            backValue += 3;
+            backValue += 3; // 3씩 증가
 
-            Message msg = new Message(); //메세지 생성
-            msg.what = 0;  // 메세지 id
-            msg.arg1 = backValue;
+            Message msg = new Message(); //메세지 객체 생성
+            msg.what = 0;  // 메세지 id // 메시지의 id 값이  아까 what 이라고 했어. 그걸 0 으로 만들고,
+            msg.arg1 = backValue;   // 메시지의 정수값 arg1(정수값을 보내기 위한 효율적인 방법).. 에 백밸류값을 넣는다.
 
-            handler.sendMessage(msg);   // 메인스레드의 핸들러에 메세지 보내기
+            handler.sendMessage(msg);   // 메인스레드의 핸들러에 메세지 보내기(메인스레드의 핸들러를 통해 메시지 객체
 
             try {
                 Thread.sleep(1000);
@@ -204,7 +208,9 @@ class BackThread4 extends Thread{
     int backValue = 0;
     Handler handler;
 
-    BackThread4(Handler handler) {this.handler = handler;}
+    BackThread4(Handler handler) {
+        this.handler = handler;
+    }
 
     @Override
     public void run() {
