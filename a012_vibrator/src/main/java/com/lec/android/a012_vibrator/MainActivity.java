@@ -8,6 +8,8 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 
+//<!-- 진동 기능 사용권한 획득 -->
+//<uses-permission android:name="android.permission.VIBRATE" />
 // 진동
 // 1. 진동 권한을 획득해야한다. AndroidManifest.xml ( 명시만 해주면 됨)
 // 2. Vibrator 객체를 얻어서 진동시킨다

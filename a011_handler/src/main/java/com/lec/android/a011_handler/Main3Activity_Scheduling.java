@@ -38,7 +38,7 @@ import java.util.TimerTask;
  *
  */
 
-public class Main3Activity extends AppCompatActivity {
+public class Main3Activity_Scheduling extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,8 @@ public class Main3Activity extends AppCompatActivity {
     } // end onCreate()
 
 
+
+    // 메인에다가 핸들러 객체 만들어 주고
     Handler mhandler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -58,6 +60,10 @@ public class Main3Activity extends AppCompatActivity {
     void doUpload(int n){
         Toast.makeText(getApplicationContext(), n + ": 업로드를 완료했습니다.", Toast.LENGTH_LONG).show();
     }
+
+
+
+
 
     // #1 : 메인 스레드가 메인스레드 자신에게 메세지 보내기
     // sendEmptyMessageDelayed()

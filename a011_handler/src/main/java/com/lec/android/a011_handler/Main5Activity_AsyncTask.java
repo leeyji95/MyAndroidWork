@@ -28,7 +28,7 @@ import android.widget.TextView;
  */
 
 
-public class Main5Activity extends AppCompatActivity {
+public class Main5Activity_AsyncTask extends AppCompatActivity {
     int mainValue = 0;
     int backValue1 = 0;
     int backValue2 = 0;

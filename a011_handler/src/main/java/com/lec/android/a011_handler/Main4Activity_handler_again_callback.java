@@ -20,7 +20,7 @@ import android.widget.Toast;
 // 10 초에 도달하면 멈추어서 Toast 띄우기
 // Handler 사용
 
-public class Main4Activity extends AppCompatActivity {
+public class Main4Activity_handler_again_callback extends AppCompatActivity {
 
     int value1 = 0, value2 = 0, value3 = 0, value4 = 0, value5 = 0;
     TextView tvResult1, tvResult2, tvResult3, tvResult4, tvResult5;
