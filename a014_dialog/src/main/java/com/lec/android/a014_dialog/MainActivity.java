@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         dlg1.setCanceledOnTouchOutside(true); // 다이얼로그 바깥 영역 클릭시 (혹은 back 버튼 클릭 시) hide 상태가 됨. -> boolean 타입 리턴// 바깥쪽 클릭시 어떻게 동작할래?
             // 종료할 것인지 여부, true : 종료됨, false : 종료안됨.
 
+        dlg1.show();
 
         // #2 두번째 다이얼로그
         dlg2 = new Dialog(this);
@@ -92,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
     } // end onCreate()
 
 
-    public void showDialog1(View v){
-        dlg1.show(); // 다이얼로그 띄우기 (보이게)
-    }
+//    public void showDialog1(View v){
+//        dlg1.show(); // 다이얼로그 띄우기 (보이게)
+//    }
 
 
     public void showDialog2(View v){
