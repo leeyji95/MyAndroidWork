@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main"
+    tools:context=".Main">
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="96dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="336dp"
+        android:background="#B5D0E6"
+        android:text="START"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnHowto"
+        android:layout_width="125dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="40dp"
+        android:background="#F3AFAF"
+        android:text="How To Play"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="99dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="52dp"
+        android:background="#BEE196"
+        android:text="INFO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHowto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
