@@ -20,8 +20,10 @@
             <option value="$PROJECT_DIR$/a008_practice" />
             <option value="$PROJECT_DIR$/a008_recycler" />
             <option value="$PROJECT_DIR$/a009_sound" />
+            <option value="$PROJECT_DIR$/a010_storage" />
             <option value="$PROJECT_DIR$/a011_handler" />
             <option value="$PROJECT_DIR$/a012_vibrator" />
+            <option value="$PROJECT_DIR$/a013_menu" />
             <option value="$PROJECT_DIR$/a014_dialog" />
             <option value="$PROJECT_DIR$/blockgame" />
           </set>
