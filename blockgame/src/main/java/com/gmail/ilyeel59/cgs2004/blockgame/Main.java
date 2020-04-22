@@ -13,7 +13,7 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+// 안녕
         Button btnStart = findViewById(R.id.btnStart);
         Button btnHowTo = findViewById(R.id.btnHowto);
         Button btnInfo = findViewById(R.id.btnInfo);
