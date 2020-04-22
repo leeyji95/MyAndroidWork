@@ -53,9 +53,9 @@ public class Main4Activity extends AppCompatActivity {
                 dbVersion
         );
 
-        try{
+        try {
             db = helper.getWritableDatabase();
-        }catch (SQLiteException e){
+        } catch (SQLiteException e) {
             e.printStackTrace();
             Log.e("myapp", "데이터 베이스를 열 수 없음");// Logcat 의 error 에 표시됨
         }
@@ -69,15 +69,15 @@ public class Main4Activity extends AppCompatActivity {
                 String address = etAddress.getText().toString();
 
                 // name 이 입력 안됐다면
-                if("".equals(name)){ // name 이 ""  비어있는 문자라면  더이상 실행안 시키고  아무것도 없이 리턴
+                if ("".equals(name)) { // name 이 ""  비어있는 문자라면  더이상 실행안 시키고  아무것도 없이 리턴
                     tvResult.setText("INSERT 실패: 필수 항목 입력하세요");
                     return;
                 }
 
-                int a = 0 ;
-                try{
+                int a = 0;
+                try {
                     a = Integer.parseInt(age);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     tvResult.setText("INSERT 실패 - age 는 숫자로 입력하세요");
                 }
 
@@ -93,15 +93,15 @@ public class Main4Activity extends AppCompatActivity {
                 String address = etAddress.getText().toString();
 
                 // name 이 입력 안됐다면
-                if("".equals(name)){ // name 이 ""  비어있는 문자라면  더이상 실행안 시키고  아무것도 없이 리턴
+                if ("".equals(name)) { // name 이 ""  비어있는 문자라면  더이상 실행안 시키고  아무것도 없이 리턴
                     tvResult.setText("UPDATE 실패: 필수 항목 입력하세요");
                     return;
                 }
 
-                int a = 0 ;
-                try{
+                int a = 0;
+                try {
                     a = Integer.parseInt(age);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     tvResult.setText("UPDATE 실패 - age 는 숫자로 입력하세요");
                 }
                 update(name, a, address);
@@ -113,7 +113,7 @@ public class Main4Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = etName.getText().toString();
 
-                if("".equals(name)){
+                if ("".equals(name)) {
                     tvResult.setText("DELETE 실패 - 삭제할 이름을 입력하세요");
                     return;
                 }
@@ -133,12 +133,8 @@ public class Main4Activity extends AppCompatActivity {
     } // onCreate()
 
 
-
-
-
-
     // 안드로이드에서 따로 제공해주는 insert() 메소드 사용할 것임
-    void insert(String name, int age, String address){
+    void insert(String name, int age, String address) {
         // 안드로이드에서 네임 밸류 쌍으로 저장하는 객체
         ContentValues values = new ContentValues(); // name-value 쌍으로 저장하는 객체
 
@@ -160,12 +156,9 @@ public class Main4Activity extends AppCompatActivity {
     } // end insert()
 
 
-
-
-
-    void select(){
+    void select() {
         //SELECT 문을 위한 query() 메소드
-        Cursor c = db.query(tableName, null, null, null,null,null, null);
+        Cursor c = db.query(tableName, null, null, null, null, null, null);
         // 컬럼에서 어느 컬럼인지를 나열?
         // db.query("sku_table", columns, "owner=?", new String[] { "Mike" }, null, null, null);
         //                           --> WHERE owner='Mike'   //  물음표에 대한 것만큼 문자열이 들어간다.
@@ -173,14 +166,14 @@ public class Main4Activity extends AppCompatActivity {
         //                          --> WHERE owner='Mike' AND price=100
         // 컬럼이 null 이면 모든 컬럼 튀어나옴
 
-        while(c.moveToNext()){
+        while (c.moveToNext()) {
 
             int id = c.getInt(0);
             String name = c.getString(1);
             int age = c.getInt(2);
             String address = c.getString(3);
 
-            String msg = String.format("id:%d, name:%s, age:%d, address:%s", id,name, age, address);
+            String msg = String.format("id:%d, name:%s, age:%d, address:%s", id, name, age, address);
 
             Log.d("myapp", msg);
             tvResult.append("\n" + msg);
@@ -192,9 +185,7 @@ public class Main4Activity extends AppCompatActivity {
     } // end select()
 
 
-
-
-    void update(String name, int age, String etAddress){
+    void update(String name, int age, String etAddress) {
         ContentValues values = new ContentValues();
 
         values.put("age", age);// 변경할 값
@@ -205,7 +196,7 @@ public class Main4Activity extends AppCompatActivity {
         int cnt = db.update(tableName,  // 테이블 명
                 values,     // 변경할 값들
                 "name=?",  // WHERE 조건절
-                new String[] {name} // 조건절의 ? 값들
+                new String[]{name} // 조건절의 ? 값들
         );
 
         String msg = cnt + "개의 row update 성공";
@@ -214,15 +205,14 @@ public class Main4Activity extends AppCompatActivity {
     }// end update
 
 
-
     // 특정 name 값을 가진  래ㅔ코드(들) 삭제
-    void delete(String name){
+    void delete(String name) {
 
         // 리턴값은 affected rows
         int cnt = db.delete(tableName, // 테이블 명
                 "name=?",  // WHERE 조건절
-                new String[] {name}  // 위 조건절의 ? 값들
-                );
+                new String[]{name}  // 위 조건절의 ? 값들
+        );
 
         String msg = cnt + "개 row delete 성공";
         tvResult.setText(msg);
