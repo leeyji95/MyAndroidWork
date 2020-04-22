@@ -28,12 +28,10 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         // AlertDialog : Dialog 를 상속받은 자식클래스로
         //          다이얼로그를 쉽게 만들수 있도록 지원해주고,
         //          Activity 라이프 사이클과 다이얼로그의 라이프사이클을
         //          맞춰줌
-
         tvResult = findViewById(R.id.tvResult);
         Button btnText = findViewById(R.id.btnText);
         Button btnList = findViewById(R.id.btnList);
@@ -46,26 +44,21 @@ public class Main2Activity extends AppCompatActivity {
                 showAlert(DIALOG_TEXT);
             }
         });
-
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAlert(DIALOG_LIST);
             }
         });
-
         btnRadio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAlert(DIALOG_RADIO);
             }
         });
-
         btnMultiChoice.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                showAlert(DIALOG_MULTICHOICE);
-            }
+            public void onClick(View v) {showAlert(DIALOG_MULTICHOICE);}
         });
     } // end onCreate()____화면 ~
 
@@ -76,7 +69,7 @@ public class Main2Activity extends AppCompatActivity {
         switch (id){
             case DIALOG_TEXT:
                 AlertDialog.Builder builder1 =
-                        new AlertDialog.Builder(this);
+                        new AlertDialog.Builder(Main2Activity.this);
 
                 // 메소드 체이닝 중..
                 builder1.setTitle("다이얼로그 제목")
@@ -101,7 +94,7 @@ public class Main2Activity extends AppCompatActivity {
                         });
                 builder1.show(); // 다이얼로그 보이기
                 return builder1;
-                // 지금까지 먼저 빌더 만들고(빌더를 만든 것이다), 빌더에 속성들을 부여한 것. 모두 setter 잖여.
+                // 지금까지 먼저 빌더 만들고(빌더를 만든 것이다), 빌더에 속성들을 사용하는 것. 모두 builder 의 setter 잖여.
 
             case DIALOG_LIST:
                 AlertDialog.Builder builder2
@@ -154,8 +147,6 @@ public class Main2Activity extends AppCompatActivity {
                 builder3.show();
                 return builder3;
 
-
-
             case DIALOG_MULTICHOICE:
                 AlertDialog.Builder builder4 =
                         new AlertDialog.Builder(this);
@@ -190,20 +181,11 @@ public class Main2Activity extends AppCompatActivity {
                                         checked[which] = isChecked;
                                     }
                                 }
-                        )
-                        ;
-
+                        );
                 builder4.show();
                 return builder4;
 
-
-
-
         } // end switch
-
         return  null;
-
     }
-
-
 } // end Activity

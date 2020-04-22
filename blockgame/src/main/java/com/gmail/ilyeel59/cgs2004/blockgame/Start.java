@@ -173,8 +173,8 @@ public class Start extends AppCompatActivity implements View.OnClickListener{
         if(isOk){ // 버튼 색깔을 맞추었다면!
 
             // 위의 7개 블럭을 한칸 아래로 이동, iv[i] 를 -> iv[i + 1] (그대로 복사..)
-             for(int i = iv.length-2; i >= 0; i--){
-                 int num = Integer.parseInt(iv[i].getTag().toString()); // "0", "1", "2"
+             for(int i = iv.length-2; i >= 0; i--){   // for 문에서 0 번째 방이 없네. 그래서 밑에 0번째 방 정해줘야.
+                 int num = Integer.parseInt(iv[i].getTag().toString()); // "0", "1", "2" 중 하나일 것
                  iv[i + 1].setImageResource(img[num]);  // i 아래쪽 블럭 이미지 업데이트
                  iv[i + 1].setTag(num + ""); // i 아래쪽 블럭 tag값 업데이트
              } // end for
