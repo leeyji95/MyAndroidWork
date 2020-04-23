@@ -13,13 +13,25 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 /* XML, Json 파싱2
  *
  * ■서울시 지하철 역사 정보
@@ -42,6 +54,7 @@ public class Main3Activity extends AppCompatActivity {
     Button btnXML, btnJSON, btnParse;
     static TextView tvResult;
     Handler handler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,18 +93,17 @@ public class Main3Activity extends AppCompatActivity {
                 final String url;
                 try {
                     url = buildUrlAddress("json", 1, 5, editText.getText().toString().trim());
-        Log.d("myapp", "url" + url);
+
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             request(url);
-                Log.d("myapp", "요청" );
                         }
                     }).start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ;
+
             }
         });
 
@@ -99,7 +111,6 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-//                    String url = buildUrlAddress("json", 1, 5, editText.getText().toString().trim());
                     parseJSON(tvResult.getText().toString());
                     tvResult.setText("");
                 } catch (JSONException e) {
@@ -165,6 +176,44 @@ public class Main3Activity extends AppCompatActivity {
     }
 
 
+    public static void ParseXML(String url) {
+        DocumentBuilderFactory dbFactory;
+        DocumentBuilder dBuilder;
+
+        try {
+            dbFactory = DocumentBuilderFactory.newInstance();
+            dBuilder = dbFactory.newDocumentBuilder();
+            InputStream in = new ByteArrayInputStream(url.getBytes("utf-8"));
+
+            Document dom = dBuilder.parse(in);
+
+            Element docElement = dom.getDocumentElement();
+            docElement.normalize();
+
+            NodeList nodeList = docElement.getElementsByTagName("row");
+
+            for(int i = 0; i < nodeList.getLength(); i++){
+                Node node = nodeList.item(i);
+
+                if(node.getNodeType() != Node.ELEMENT_NODE);
+            }
+
+
+
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public static void parseJSON(String url) throws JSONException {
 
         JSONObject jobj = new JSONObject(url); // JSON 파싱 : JSONObject <- jsonText /   우리가 response  받은게 오브젝트이기때문에  매개변수로 받은 jsonText String 타입을  JSONObject로 변환.
@@ -174,7 +223,7 @@ public class Main3Activity extends AppCompatActivity {
 //        System.out.println("row 의 개수 : " + row.length());
 //        System.out.println();
 
-        for(int i = 0; i < row.length(); i++) {
+        for (int i = 0; i < row.length(); i++) {
             JSONObject station = row.getJSONObject(i);
 
             final String statnNm = station.getString("statnNm");
@@ -184,7 +233,7 @@ public class Main3Activity extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    tvResult.append(statnNm + " " +  subwayId + " " +  subwayNm + "\n");
+                    tvResult.append(statnNm + " " + subwayId + " " + subwayNm + "\n");
                 }
             });
 

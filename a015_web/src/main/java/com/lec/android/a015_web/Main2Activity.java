@@ -51,14 +51,14 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 url = etUrl.getText().toString().trim();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url)); //   뒤에 들어가는 특정 액티비티 형태(알 수 없음)에 따라 앱이 다르게 뜬다.
-                startActivity(intent);
+                startActivity(intent);     // Intent 클래스 안의 ACTION_VIEW 라는 action 구조가 있는것.  ==> 사용자에게 화면을 보여주는 역할을 함.
             }
-        });
+        });// Uri : Uniform resource of identifier  ...  URL 보다 상위 개념..
 
 
     } // end onCreate
 
-    // 이전화면 구현
+    // 이전화면 구현(키보드 BackSpace 누르면 뒤로 돌아가기)
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 

@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (conn != null) {
                 conn.setConnectTimeout(5000); // 연결이 수립되는 시간. timeout 시간 설정. 경과하면 SocketTimeoutException 발생
-                conn.setUseCaches(false); // 캐시 사용 안함
+                conn.setUseCaches(false); // 캐시 사용 안함(캐싱데이터 받지 않겠다)
                 conn.setRequestMethod("GET");   // GET 방식 request
 
-                conn.setDoInput(true); // URLConnection 을 입력으로 사용하겟다. 이걸 받아옴.  이 값이 true. false 이면 출력용
+                conn.setDoInput(true); // URLConnection 을 입력(Input)으로 사용하겟다.(읽기모드 지정) 이걸 받아옴.  이 값이 true. false 이면 출력용(쓰기모드 지정)
 
                 int responseCode = conn.getResponseCode(); // response  code 값. 성공하면 200
 
@@ -110,7 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        /*
+        따로 처리해야하는 (즉, 별도의 쓰레드로 처리해야 하는) 동작은
+        그 동작에서 handler 로 결과 메시지  메인으로 전달해주고,
+        메인에서 new Thread() 통해 핸들러를 받는다.
+         */
 
     } // end request
 
