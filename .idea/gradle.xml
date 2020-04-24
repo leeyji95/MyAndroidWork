@@ -28,6 +28,9 @@
             <option value="$PROJECT_DIR$/a015_web" />
             <option value="$PROJECT_DIR$/a016_sensor" />
             <option value="$PROJECT_DIR$/a017_location" />
+            <option value="$PROJECT_DIR$/a018_touch" />
+            <option value="$PROJECT_DIR$/a019_graphic" />
+            <option value="$PROJECT_DIR$/a023_camera" />
             <option value="$PROJECT_DIR$/blockgame" />
           </set>
         </option>
