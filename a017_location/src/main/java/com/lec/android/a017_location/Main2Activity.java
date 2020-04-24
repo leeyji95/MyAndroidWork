@@ -28,8 +28,10 @@ import android.widget.ToggleButton;
  * 1-2 API23+ 에서는 (마시멜로): 새로운 권한 획득 방법 사용.
  * Run-time 에 onRequestPermissionsResult() 사용 해야 한다!!!
  * https://developer.android.com/training/permissions/requesting.html
+ * <p>
  * 2. LocationManager 획득
- * 3. LocationProvider 지정
+ * <p>
+ * 3. LocationProvider 지정 ==> (Gps, network, passive 중 어느걸로 알아낼래?)
  * 이전에 사용한 Provider 있는지 여부, 없으면 새로
  * <p>
  * ※ GPS 는 에뮬레이터에서는 기본적으로 동작하지 않는다
@@ -92,7 +94,7 @@ public class Main2Activity extends AppCompatActivity {
                     // 위치정보 수신 시작 코드...
                     try {
                         // 주어진 위치제공자가 기억하는 가장 최근의 위치정보 획득, 없으면 null 리턴
-                        Location location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER); // GPS ~가 기억하고 있는 걸 먼저 가져온다.
+                        Location location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER); // GPS ~가 기억하고 있는 걸 먼저 가져와서 location에 담아준다. (위치정보를 담아줌)
                         if (location != null) {
                             tvResult.setText("최근 위치\n" + locationInfo(location));
                         }
@@ -159,8 +161,8 @@ public class Main2Activity extends AppCompatActivity {
         double longitude = location.getLongitude(); //경도
         double latitude = location.getLatitude(); // 위도
         double altitude = location.getAltitude(); // 고도
-        float accuracy =  location.getAccuracy() ; // 정확도
-                String provider = location.getProvider(); // 위치 제공자
+        float accuracy = location.getAccuracy(); // 정확도
+        String provider = location.getProvider(); // 위치 제공자
 
         return "위치정보: " + provider + "\n위도: " + longitude + "\n경도: " + latitude
                 + "\n고도: " + altitude + "\n정확도: " + accuracy + "\n위치제공자: " + provider;
