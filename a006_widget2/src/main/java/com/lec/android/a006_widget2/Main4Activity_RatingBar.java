@@ -7,10 +7,11 @@ import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class Main4Activity extends AppCompatActivity {
+public class Main4Activity_RatingBar extends AppCompatActivity {
 
     RatingBar rb;
     TextView tvResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
