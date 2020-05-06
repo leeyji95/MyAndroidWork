@@ -33,7 +33,6 @@
             <option value="$PROJECT_DIR$/a023_camera" />
             <option value="$PROJECT_DIR$/blockgame" />
             <option value="$PROJECT_DIR$/letsittapp" />
-            <option value="$PROJECT_DIR$/myapplication" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
